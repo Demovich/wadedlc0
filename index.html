@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>WADE DLC — Бесплатный клиент | Официальный сайт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0c12;
+            font-family: 'Inter', sans-serif;
+            color: #eef2ff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* кастомный скролл */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #141824;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b3f5c;
+            border-radius: 20px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Nav */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-bottom: 1px solid rgba(46, 52, 80, 0.6);
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #c084fc, #60a5fa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            font-size: 1rem;
+            font-weight: 500;
+            background: none;
+            background-clip: unset;
+            -webkit-background-clip: unset;
+            color: #8b9bcf;
+        }
+        .nav-links a {
+            color: #b9c3e6;
+            text-decoration: none;
+            margin-left: 28px;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            color: #a78bfa;
+            text-shadow: 0 0 6px rgba(167, 139, 250, 0.3);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(95deg, #7c3aed, #a855f7);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.25s ease;
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .btn-primary i {
+            font-size: 1.2rem;
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+            background: linear-gradient(95deg, #8b5cf6, #c084fc);
+            box-shadow: 0 12px 28px rgba(124, 58, 237, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #7e8ab0;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #cdd9ff;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-outline:hover {
+            border-color: #a78bfa;
+            color: #e0e7ff;
+            background: rgba(167, 139, 250, 0.08);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            padding: 60px 0 40px;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
+        }
+        .badge {
+            background: rgba(124, 58, 237, 0.2);
+            backdrop-filter: blur(2px);
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #c4b5fd;
+            margin-bottom: 20px;
+            border: 1px solid rgba(167, 139, 250, 0.4);
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #f0f3ff, #b9c6f0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #b1c2e6;
+            margin-bottom: 32px;
+            max-width: 550px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+        .stat-number {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: white;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: #8f9cc7;
+        }
+        .hero-img {
+            flex: 1;
+            background: radial-gradient(circle at 30% 20%, #1e1f2e, #0c0e16);
+            border-radius: 2rem;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.5);
+        }
+        .hero-img i {
+            font-size: 9rem;
+            color: #4f46e5;
+            filter: drop-shadow(0 0 12px #a855f7);
+        }
+        .hero-img p {
+            margin-top: 16px;
+            font-weight: 500;
+            color: #a5b4fc;
+        }
+
+        /* features */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 60px 0 40px;
+        }
+        .section-title i {
+            color: #a78bfa;
+            margin-right: 12px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .feature-card {
+            background: #11131f;
+            padding: 28px 20px;
+            border-radius: 28px;
+            border: 1px solid #252a41;
+            transition: 0.2s;
+            text-align: center;
+        }
+        .feature-card:hover {
+            border-color: #7c3aed;
+            transform: translateY(-5px);
+            background: #131725;
+        }
+        .feature-card i {
+            font-size: 2.8rem;
+            color: #a78bfa;
+            margin-bottom: 18px;
+        }
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .feature-card p {
+            color: #9aa8cf;
+            font-size: 0.9rem;
+        }
+
+        /* screenshots gallery */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin: 40px 0 30px;
+        }
+        .screenshot-card {
+            background: #0f111c;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #292f44;
+            cursor: pointer;
+        }
+        .screenshot-card:hover {
+            transform: scale(1.02);
+            border-color: #a78bfa;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.6);
+        }
+        .screenshot-img {
+            width: 100%;
+            background: #1b1e2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+        .screenshot-img img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        .screenshot-card:hover .screenshot-img img {
+            transform: scale(1.1);
+        }
+        .screenshot-caption {
+            padding: 16px;
+            text-align: center;
+            font-weight: 500;
+            background: #0c0f18;
+            color: #ccd6f6;
+            border-top: 1px solid #1f253e;
+        }
+
+        /* Download CTA */
+        .download-section {
+            background: linear-gradient(125deg, #0e1020, #0b0d18);
+            margin: 60px 0;
+            border-radius: 48px;
+            padding: 50px 30px;
+            text-align: center;
+            border: 1px solid #2d3250;
+            box-shadow: 0 20px 35px -8px black;
+        }
+        .download-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .download-section .free-badge {
+            background: #1e293b;
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #b9fbc0;
+            font-size: 0.85rem;
+        }
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+        .btn-telegram {
+            background: #1f2a3e;
+            border: 1px solid #3b4b6e;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #d6e3ff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+        }
+        .btn-telegram i {
+            font-size: 1.5rem;
+            color: #2aabee;
+        }
+        .btn-telegram:hover {
+            background: #2a3a58;
+            border-color: #5f7fbf;
+            transform: scale(1.02);
+        }
+
+        /* footer */
+        footer {
+            border-top: 1px solid #1e2338;
+            padding: 32px 0;
+            margin-top: 40px;
+            text-align: center;
+            color: #7a86af;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links a {
+                margin: 0 12px;
+            }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .download-section {
+                padding: 35px 20px;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
+            WADE<span>DLC</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Возможности</a>
+            <a href="#screenshots">Скриншоты</a>
+            <a href="#download">Скачать</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="badge">
+                <i class="fas fa-gem"></i>  Абсолютно бесплатно
+            </div>
+            <h1>WADE DLC<br>Новый уровень геймплея</h1>
+            <p>Ультимативный клиент для твоих приключений. Расширенные возможности, чистая производительность и эксклюзивный контент. Никаких скрытых платежей — всё абсолютно бесплатно!</p>
+            
+            <div class="hero-buttons">
+                <a href="#download" class="btn-primary"><i class="fas fa-download"></i> Скачать бесплатно</a>
+                <a href="https://chat.deepseek.com/a/chat/s/8dfc53bf-543c-4fa9-b5bd-9c7fa76fab70" target="_blank" class="btn-outline" rel="noopener noreferrer"><i class="fas fa-link"></i> Резерв</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">50k+</span><span class="stat-label">Активных юзеров</span></div>
+                <div class="stat"><span class="stat-number">4.9</span><span class="stat-label">Рейтинг ★</span></div>
+                <div class="stat"><span class="stat-number">24/7</span><span class="stat-label">Поддержка в TG</span></div>
+            </div>
+        </div>
+        <div class="hero-img">
+            <i class="fab fa-telegram-plane"></i>
+            <p>⚡ Официальный канал: @wade_official</p>
+            <small style="color:#6a789b;">Переходи за актуальной версией</small>
+        </div>
+    </div>
+
+    <div id="features">
+        <div class="section-title">
+            <i class="fas fa-crown"></i> Ключевые возможности
+        </div>
+        <div class="features-grid">
+            <div class="feature-card"><i class="fas fa-bolt"></i><h3>Молниеносная работа</h3><p>Оптимизированный код и минимальная задержка.</p></div>
+            <div class="feature-card"><i class="fas fa-shield-alt"></i><h3>Безопасность</h3><p>Приватность данных и стабильная защита.</p></div>
+            <div class="feature-card"><i class="fas fa-chart-line"></i><h3>Улучшенный интерфейс</h3><p>Интуитивно понятное меню, настройки под себя.</p></div>
+            <div class="feature-card"><i class="fas fa-infinity"></i><h3>Постоянные обновления</h3><p>Новый контент выходит регулярно.</p></div>
+        </div>
+    </div>
+
+    <div id="screenshots">
+        <div class="section-title">
+            <i class="fas fa-images"></i> Скриншоты интерфейса и геймплея
+        </div>
+        <div class="screenshots-grid">
+            <div class="screenshot-card">
+                <div class="screenshot-img">
+                    <img src="assets/screen.png" alt="Главное меню DLC">
+                </div>
+                <div class="screenshot-caption">Click Gui</div>
+            </div>
+            <div class="screenshot-card">
+                <div class="screenshot-img">
+                    <img src="assets/screen1.png" alt="Настройки профиля">
+                </div>
+                <div class="screenshot-caption">Hud</div>
+            </div>
+            <div class="screenshot-card">
+                <div class="screenshot-img">
+                    <img src="assets/screen2.png" alt="Внутриигровой функционал">
+                </div>
+                <div class="screenshot-caption">Visuals</div>
+            </div>
+            <div class="screenshot-card">
+                <div class="screenshot-img">
+                    <img src="assets/screen3.png" alt="Командный дашборд">
+                </div>
+                <div class="screenshot-caption">Xyi znaet</div>
+            </div>
+        </div>
+        <p style="text-align: center; margin: 10px 0 20px; color: #8f9bc0;"><i class="fas fa-mouse-pointer"></i> Наведи на скриншот для увеличения</p>
+    </div>
+
+    <div id="download" class="download-section">
+        <div class="free-badge"><i class="fas fa-gift"></i>  FOREVER FREE / ПОЛНОСТЬЮ БЕСПЛАТНО</div>
+        <h2>Готов начать использовать WADE DLC?</h2>
+        <p style="max-width: 600px; margin: 15px auto; color: #b7c2e5;">Выбери удобный способ: загрузи последнюю версию напрямую через наш официальный Telegram-канал или воспользуйся резервной ссылкой.</p>
+        
+        <div class="download-buttons">
+            <a href="https://t.me/wade_official" target="_blank" class="btn-telegram" rel="noopener noreferrer">
+                <i class="fab fa-telegram"></i> Скачать через Telegram
+            </a>
+            <a href="https://chat.deepseek.com/a/chat/s/8dfc53bf-543c-4fa9-b5bd-9c7fa76fab70" target="_blank" class="btn-outline" rel="noopener noreferrer">
+                <i class="fas fa-sync-alt"></i> Резервная ссылка
+            </a>
+        </div>
+        
+        <p style="margin-top: 35px; font-size: 0.8rem;"><i class="fas fa-lock-open"></i> Без вирусов, без подписок. Переход на @wade_official — официальный источник.</p>
+    </div>
+
+    <footer>
+        <p>© 2026 WADE DLC — Неофициальный клиент для улучшения игрового процесса. Разработан энтузиастами. Все права на товарные знаки принадлежат их владельцам.</p>
+        <p style="margin-top: 12px;"><i class="fab fa-telegram"></i> Официальный канал: <a href="https://t.me/wade_official" target="_blank" style="color:#a78bfa; text-decoration: none;">t.me/wade_official</a>  |  Бесплатно навсегда</p>
+    </footer>
+</div>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId === "#") return;
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
